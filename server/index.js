@@ -1,11 +1,12 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import Contact from "./Schema/Contact.js"
-
+import cors from "cors"
 
 const app = express()
 
 app.use(express.json())
+app.use(cors())
 
 mongoose.connect("mongodb://0.0.0.0:27017/Contact_Us")
     .then(() => {
