@@ -19,12 +19,16 @@ app.get("/", (req, res) => {
     res.send("API для сервиса добавления контактов")
 })
 
-app.get('/users', async (req, res) => {
-    const users = await Contact.find({});
-    res.json(users);
+app.get('/contacts', async (req, res) => {
+    try {
+        const users = await Contact.find({});
+        res.json(users);
+    } catch(err) {
+        res.json(err)
+    }
 })
 
-app.post("/users", async (req, res) => {
+app.post("/contacts", async (req, res) => {
     try {
 
         const contactPhone = await Contact.findOne({phoneNumber: req.body.phoneNumber})
@@ -42,6 +46,35 @@ app.post("/users", async (req, res) => {
         await doc.save()
         res.json({status: "OK", message: "Контакт успешно добавлен!"})
 
+    } catch(err) {
+        res.json(err)
+    }
+})
+
+app.patch("/contacts", async (req, res) => {
+    try {
+
+        await Contact.updateOne({
+            phoneNumber: req.body.phoneNumber
+        },{
+            name: req.body.title,
+            comment: req.body.comment,
+        })
+
+        res.json({status: "OK", message: "Контакт успешно обновлён!"})
+
+    } catch(err) {
+        res.json(err)
+    }
+})
+
+app.delete("/contacts", async (req, res) => {
+    try {
+        await Contact.findOneAndDelete({
+            phoneNumber: req.body.phoneNumber
+        })
+
+        res.json({status: "OK", message: "Контакт успешно удалён!"})
     } catch(err) {
         res.json(err)
     }
