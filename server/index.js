@@ -15,7 +15,6 @@ mongoose.connect("mongodb://0.0.0.0:27017/Contact_Us")
         console.log(`БАЗА ДАННЫХ НЕ ПОДКЛЮЧЕНА. Ошибка: ${err}`)
     })
 
-
 app.get("/", (req, res) => {
     res.send("API для сервиса добавления контактов")
 })
