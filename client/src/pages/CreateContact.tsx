@@ -7,6 +7,12 @@ const CreateContact = () => {
   const [newContactComment, setNewContactComment] = useState("")
 
   async function addContacts() {
+
+    if (!newContactName || !newContactPhoneNumber || !newContactComment) {
+      alert("Неверно указаны данные!")
+      return
+    }
+
     const data = {
       name: newContactName,
       phoneNumber: newContactPhoneNumber,
@@ -27,12 +33,12 @@ const CreateContact = () => {
   }
 
   return (
-    <div>
-      <input type="text" name='name' placeholder='Имя' onChange={e => setNewContactName(e.target.value)} value={newContactName}/>
-      <input type="text" name='phoneNumber' placeholder='Номер телефона' onChange={e => setNewContactPhoneNumber(e.target.value)} value={newContactPhoneNumber}/>
-      <input type="text" name='comment' placeholder='Комментарий' onChange={e => setNewContactComment(e.target.value)} value={newContactComment}/>
+    <div className='flex flex-col'>
+      <input className='w-[600px] text-2xl border rounded-lg border-green-300 p-2 mb-5' type="text" name='name' placeholder='Имя' onChange={e => setNewContactName(e.target.value)} value={newContactName}/>
+      <input className='w-[600px] text-2xl border rounded-lg border-green-300 p-2 mb-5' type="text" name='phoneNumber' placeholder='Номер телефона' onChange={e => setNewContactPhoneNumber(e.target.value)} value={newContactPhoneNumber}/>
+      <input className='w-[600px] text-2xl border rounded-lg border-green-300 p-2 mb-5' type="text" name='comment' placeholder='Комментарий' onChange={e => setNewContactComment(e.target.value)} value={newContactComment}/>
       <div>
-        <button onClick={addContacts}>
+        <button className='w-[200px] h-auto bg-green-500 text-white text-xl px-1 py-3 rounded-lg' onClick={addContacts}>
           Добавить
         </button>
       </div>
