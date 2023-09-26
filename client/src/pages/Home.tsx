@@ -18,14 +18,16 @@ const Home = () => {
   })
 
   return (
-    <>
-      <h2>Мои контакты</h2>
-      <div>
+    <div className='w-full h-[675px] bg-gray-800 p-4'>
+      <div className='w-[1200px] h-auto flex justify-between flex-wrap mx-auto'>
         {contacts.map(contact => {
-          return <ContactItem key={contact.phoneNumber} name={contact.name} phoneNumber={contact.phoneNumber} comment={contact.comment}/>
+          return <ContactItem key={contact._id} 
+          name={contact.name} 
+          phoneNumber={contact.phoneNumber} 
+          comment={contact.comment}/>
         })}
       </div>
-    </>
+    </div>
   )
 }
 
