@@ -1,19 +1,9 @@
-import React from 'react'
 import { IContact } from '../interface/IContact'
 import { useNavigate } from 'react-router-dom'
 
-const ContactItem = ({_id, name, phoneNumber, comment}: IContact) => {
+const ContactItem = ({_id, name, phoneNumber, comment, deleteContact}: IContact) => {
 
   const navigation = useNavigate()
-
-  async function deleteContact(id: string) {
-    await fetch(`http://localhost:3100/contact/${id}`, {
-      method: "DELETE",
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-  }
 
   return (
   

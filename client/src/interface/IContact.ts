@@ -3,4 +3,5 @@ export interface IContact {
     name: string,
     phoneNumber: string,
     comment: string
+    deleteContact: Function
 }
