@@ -18,7 +18,7 @@ const Home = () => {
   })
 
   return (
-    <div className='w-full h-[675px] bg-gray-800 p-4'>
+    <div className='p-4'>
       <div className='w-[1200px] h-auto flex justify-between flex-wrap mx-auto'>
         {contacts.map(contact => {
           return <ContactItem key={contact._id} 
