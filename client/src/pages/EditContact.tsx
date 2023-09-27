@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { IContact } from '../interface/IContact'
 
 const EditContact = () => {
 
+    const stateInit = {
+        _id: "",
+        name: "",
+        phoneNumber: "",
+        comment: ""
+      }
+    
     const { id } = useParams()
-    const [contact, setContact] = useState({})
+    const [contact, setContact] = useState<IContact>(stateInit)
     const navigation = useNavigate()
 
     async function getContact() {

@@ -6,16 +6,16 @@ const Home = () => {
 
   const [contacts, setContacts] = useState([])
 
+  async function getContacts() {
+    const responce = await fetch("http://localhost:3100/contacts")
+    const data = await responce.json()
+
+    setContacts(data)
+  }
+
   useEffect(() => {
-    async function getContacts() {
-      const responce = await fetch("http://localhost:3100/contacts")
-      const data = await responce.json()
-
-      setContacts(data)
-    }
-
     getContacts()
-  })
+  }, [])
 
   return (
     <div className='p-4'>
