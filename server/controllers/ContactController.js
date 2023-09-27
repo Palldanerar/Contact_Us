@@ -65,7 +65,7 @@ export const updateContact = async (req, res) => {
         await Contact.updateOne({
             _id: req.params.id
         },{
-            name: req.body.title,
+            name: req.body.name,
             phoneNumber: req.body.phoneNumber,
             comment: req.body.comment,
         })

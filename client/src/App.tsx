@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
 import CreateContact from "./pages/CreateContact"
 import Navbar from './components/Navbar'
+import EditContact from "./pages/EditContact"
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/new" element={<CreateContact />} />
+          <Route path="/edit/:id" element={<EditContact />} />
         </Routes>
     </div>
   )

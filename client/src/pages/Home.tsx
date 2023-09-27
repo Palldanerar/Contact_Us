@@ -21,7 +21,8 @@ const Home = () => {
     <div className='p-4'>
       <div className='w-[1200px] h-auto flex justify-between flex-wrap mx-auto'>
         {contacts.map(contact => {
-          return <ContactItem key={contact._id} 
+          return <ContactItem key={contact._id}
+          _id={contact._id}
           name={contact.name} 
           phoneNumber={contact.phoneNumber} 
           comment={contact.comment}/>
